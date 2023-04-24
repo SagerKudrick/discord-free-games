@@ -1,5 +1,8 @@
 {
   "dependencies": {
-    "mysql": "^2.18.1"
+    "cheerio": "^1.0.0-rc.12",
+    "mysql": "^2.18.1",
+    "mysql2": "^3.2.3",
+    "request": "^2.88.2"
   }
 }

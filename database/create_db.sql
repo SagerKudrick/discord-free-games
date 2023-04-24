@@ -1,3 +1,4 @@
+DROP DATABASE free_games;
 CREATE DATABASE free_games;
 
 USE free_games;
@@ -16,7 +17,7 @@ DELIMITER $
 CREATE PROCEDURE getarticle (_title VARCHAR(255))
 BEGIN
 	SELECT title, descript, link, imgsrc, created_at
-    FROM article
+    FROM articles
     WHERE title = _title;
 END$
 
