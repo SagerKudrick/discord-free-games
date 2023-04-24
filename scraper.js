@@ -53,4 +53,4 @@ function makeRequest()  {
     
 }
 
-exports.scraper = makeRequest;
+module.exports = makeRequest;

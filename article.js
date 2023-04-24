@@ -6,6 +6,26 @@ class Article {
         this.link = link;
         this.imgsrc = imgsrc;
     }
+
+    getTitle()
+    {
+        return this.title;
+    }
+
+    getDesc()
+    {
+        return this.desc;
+    }
+
+    getLink()
+    {
+        return this.link;
+    }
+
+    getImgsrc()
+    {
+        return this.imgsrc;
+    }
 }
 
 module.exports = Article;

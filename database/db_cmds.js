@@ -18,13 +18,14 @@ con.connect( (err) => {
 function insert_article(title, desc, link, imgsrc) {
     try
     {
-        const query = `CALL insertarticle('${title}', '${desc}', '${link}', '${imgsrc}')`
+        const query = `CALL insertarticle(?, ?, ?, ?)`
 
         return new Promise((resolve, reject) => {
-            con.query(query, (err, result) => {
+            con.query(query, [title, desc, link, imgsrc], (err, result) => {
                 if (err) return reject(err);
                 
-                resolve(result[0].affectedRows);
+                rows = result[0] ? result[0].affectedRows : 0;
+                resolve(rows);
                 
             });
         });
@@ -42,7 +43,8 @@ function delete_article(title) {
             con.query(query, (err, result) => {
                 if (err) return reject(err);
                 
-                resolve(result[0].affectedRows);
+                rows = result[0] ? result[0].affectedRows : 0;
+                resolve(rows);
                 
             });
         });
@@ -54,13 +56,13 @@ function delete_article(title) {
 function get_article(title) {
     try
     {
-        const query = `use free_games; CALL getarticle('${title}');`
+        const query = "use free_games; CALL getarticle(?);"
 
         return new Promise((resolve, reject) => {
-            con.query(query, (err, result) => {
+            con.query(query, [title], (err, result) => {
                 if (err) return reject(err);
-                
-                resolve(result[0].affectedRows);
+                rows = result[0] ? result[0].affectedRows : 0;
+                resolve(rows);
                 
             });
         });
